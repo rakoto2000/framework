@@ -29,7 +29,7 @@ public class FrontServlet extends HttpServlet {
     public void init() throws ServletException {
         try{
             mappingUrls = new HashMap<>();
-                String packageName = "etu2000.framework.models";
+                String packageName = getInitParameter("packages");
                 URL root = Thread.currentThread().getContextClassLoader().getResource(packageName.replace(".", "/"));
                 for (File file : new File(root.getFile()).listFiles()) {
                     String className = file.getName().replaceAll(".class$", "");
